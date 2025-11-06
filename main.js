@@ -76,3 +76,71 @@ const printMessage = () => {
 };
 
 printMessage();
+
+// =========================================================
+// ❓ Ejercicio 1.2: Operador Ternario
+// =========================================================
+
+// Nivel 1
+// Ejercicio 1: Operador ternario básico
+// Escribe una función puedeConducir que acepte la edad como parámetro
+// y use el operador ternario para determinar si el usuario puede conducir.
+
+function puedeConducir(edad) {
+  edad >= 18 ? console.log("Puede conducir") : console.log("NO puede conducir");
+}
+
+puedeConducir(18);
+
+// Ejercicio 2: Uso con operadores de comparación
+// Escribe una expresión que use el operador ternario para determinar
+// cuál de los dos números dados (num1 y num2) es mayor.
+let num1 = 12;
+let num2 = 10;
+
+num1 > num2
+  ? console.log(`El numero mayor es ${num1}`)
+  : console.log(`El numero mayor es ${num2}`);
+
+// Nivel 2
+// Ejercicio 3: Uso encadenado de operadores ternarios
+// Escribe una expresión que use operadores ternarios encadenados
+// para determinar si un número es positivo, negativo o cero.
+
+let numero = 0;
+
+numero > 0
+  ? console.log("El número es POSITIVO")
+  : numero === 0
+  ? console.log("El número es CERO")
+  : console.log("El número es NEGATIVO");
+
+// Ejercicio 4: Operador ternario con funciones
+// Crea una función encontrarMaximo que acepte tres parámetros (a, b, c)
+// y use el operador ternario para determinar el valor máximo.
+
+function encontrarMaximo(num1, num2, num3) {
+  num1 > num2 && num1 > num3
+    ? console.log(`El valor maximo es ${num1}`)
+    : num2 > num1 && num2 > num3
+    ? console.log(`El valor maximo es ${num2}`)
+    : console.log(`El valor maximo es ${num3}`);
+}
+
+encontrarMaximo(20, 15, 45);
+
+// Nivel 3
+// Ejercicio 5: Operador ternario dentro de un bucle
+// Escribe una función parOImpar que acepte un array de números y use un bucle para recorrerlo.
+// Dentro del bucle, usa el operador ternario para determinar si cada número es par o impar.
+
+function parOImpar(array) {
+  for (let i = 0; i < array.length; i++) {
+    array[i] % 2 === 0
+      ? console.log(`El numero ${array[i]} es PAR`)
+      : console.log(`El numero ${array[i]} es IMPAR`);
+  }
+}
+
+let arrayNum = [12, 3, 8, 14, 19, 36, 22, 11, 5, 40];
+parOImpar(arrayNum);
