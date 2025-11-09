@@ -144,3 +144,99 @@ function parOImpar(array) {
 
 let arrayNum = [12, 3, 8, 14, 19, 36, 22, 11, 5, 40];
 parOImpar(arrayNum);
+
+// =========================================================
+// 🔁 Ejercicio 1.3: Callbacks
+// =========================================================
+
+// Nivel 1
+// Ejercicio 1: Callback básico
+// Escribe una función llamada procesar que acepte dos parámetros: un número y una función de callback.
+// La función procesar debe invocar el callback pasando el número como parámetro.
+
+const procesar = (num, callback) => callback(num);
+
+function invocarNumero(numero) {
+  console.log(`El numero pasado por parametro es: ${numero}`);
+}
+
+procesar(14, invocarNumero);
+
+// Ejercicio 2: Callbacks con operaciones matemáticas
+// Escribe una función calculadora que acepte tres parámetros: dos números y una función de callback.
+// calculadora debe invocar el callback con los dos números como parámetros.
+// Luego, llama calculadora con una función que sume los dos números.
+
+const calculadora = (num1, num2, operacion) => {
+  return operacion(num1, num2);
+};
+
+function sumar(numero1, numero2) {
+  console.log(numero1 + numero2);
+}
+function resta(numero1, numero2) {
+  console.log(numero1 - numero2);
+}
+
+calculadora(5, 50, sumar);
+calculadora(20, 40, resta);
+
+// Nivel 2
+// Ejercicio 3: Uso de callbacks en funciones asíncronas
+// Escribe una función esperarYSaludar que acepte dos parámetros: un nombre y una función de callback.
+// La función debe esperar 2 segundos y luego invocar la función de callback, pasando el nombre como parámetro.
+
+function esperarYSaludar(nombre, callback) {
+  setTimeout(() => {
+    callback(nombre);
+  }, 2000);
+}
+
+function saludarConDelay(saludo) {
+  console.log(`Hola ${saludo}`);
+}
+
+esperarYSaludar("Pepe", saludarConDelay);
+esperarYSaludar("Juan", saludarConDelay);
+
+// Ejercicio 4: Callbacks con arrays
+// Escribe una función procesarElementos que acepte dos parámetros: un array y una función de callback.
+// La función procesarElementos debe invocar el callback para cada elemento del array.
+
+function procesarElementos(array, callback) {
+  array.forEach((element) => {
+    callback(element);
+  });
+}
+
+function saludar(nombre) {
+  console.log(`Hola ${nombre}`);
+}
+function esParoImpar(numero) {
+  numero % 2 === 0
+    ? console.log(`El numero ${numero} es par`)
+    : console.log(`El numero ${numero} es impar`);
+}
+
+let arrayNombres = ["pepe", "juan", "maria", "ana"];
+let arrayNumeros2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+procesarElementos(arrayNumeros2, esParoImpar);
+procesarElementos(arrayNombres, saludar);
+
+// Nivel 3
+// Ejercicio 5:
+// Escribe una función procesarCadena que acepte dos parámetros: una cadena de texto y una función de callback.
+// La función procesarCadena debe convertir la cadena a mayúsculas y luego invocar la función de callback con la cadena transformada.
+
+function procesarCadena(cadenaTexto, callback) {
+  let cadenaEnMayuscula = cadenaTexto.toUpperCase();
+
+  callback(cadenaEnMayuscula);
+}
+
+function imprimirEnConsola(texto) {
+  console.log(texto);
+}
+
+procesarCadena("Hola mi nombre es Juan Ignacio", imprimirEnConsola);
