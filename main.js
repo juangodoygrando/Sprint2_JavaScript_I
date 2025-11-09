@@ -339,3 +339,76 @@ const datosExtra = {
 const fichaPersonal = { ...datosIniciales, ...datosExtra };
 
 console.log(fichaPersonal);
+
+// =========================================================
+// 🔄 Ejercicio 1.5: Transformaciones de Arrays
+// =========================================================
+
+// Nivel 1
+// Ejercicio 1: Map
+// Dado un array de números [1, 2, 3, 4], crea un nuevo array que contenga el cuadrado de cada número.
+
+const arrayNumeros3 = [1, 2, 3, 4];
+
+const arrayCuadrado = arrayNumeros3.map((numero) => numero ** 2);
+
+console.log(arrayCuadrado);
+
+// Ejercicio 2: Filter
+// Dado un array de números [1, 2, 3, 4], crea un nuevo array que solo contenga los números pares.
+const arrayNumeros4 = [1, 2, 3, 4];
+
+const arrayPares = arrayNumeros4.filter((numero) => numero % 2 === 0);
+
+console.log(arrayPares);
+
+// Ejercicio 3: Find
+// Dado un array de números [1, 10, 8, 11], usa find para encontrar el primer número mayor que 10.
+
+const arrayNumeros5 = [1, 10, 8, 11];
+
+const mayor10 = arrayNumeros5.find((numero) => numero > 10);
+
+console.log(mayor10);
+
+// Ejercicio 4: Reduce
+// Dado un array de números [13, 7, 8, 21], usa reduce para calcular la suma total de los números.
+
+const arrayNumeros6 = [13, 7, 8, 21];
+
+const sumaTotal = arrayNumeros6.reduce((acc, num) => acc + num, 0);
+
+console.log(sumaTotal);
+
+// Nivel 2
+// Ejercicio 5:
+// Dado un array [1, 3, 7, 10, 15, 17, 11, 5, 8, 12, 9], crea una función en una sola línea que:
+// - Filtre los números mayores o iguales a 10.
+// - Multiplique cada número filtrado por 2.
+// - Calcule la suma de los números filtrados y multiplicados por 2.
+// - Devuelva el resultado.
+
+const arrayNumeros7 = [1, 3, 7, 10, 15, 17, 11, 5, 8, 12, 9];
+
+const calculoFinal = (array) =>
+  console.log(
+    array
+      .filter((num) => num <= 10)
+      .map((num) => num * 2)
+      .reduce((acc, num) => acc + num, 0)
+  );
+
+calculoFinal(arrayNumeros7)
+
+// Nivel 3
+// Ejercicio 6: Every / Some
+// Usa every y some para determinar si todos o algunos de los elementos del array [11, 12, 13, 14] son mayores que 10, respectivamente.
+
+const arrayNumeros8 = [11, 12, 13, 14];
+
+const todosMayores10 = arrayNumeros8.every((num) => num > 10);
+
+const algunMenores10 = arrayNumeros8.some((num) => num > 10);
+
+console.log(todosMayores10);
+console.log(algunMenores10);
