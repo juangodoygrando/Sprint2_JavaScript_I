@@ -240,3 +240,102 @@ function imprimirEnConsola(texto) {
 }
 
 procesarCadena("Hola mi nombre es Juan Ignacio", imprimirEnConsola);
+
+// =========================================================
+// 🌈 Ejercicio 1.4: Rest & Spread Operators
+// =========================================================
+
+// Nivel 1
+// Ejercicio 1: Operador Spread en Arrays
+// Crea dos arrays, array1 y array2.
+// Usa el operador spread para crear una tercera array que contenga todos los elementos de ambas.
+
+let array1 = [2, 8, 14, 21, 28, 32, 35];
+let array2 = [1, 3, 5, 7, 9, 11, 13];
+
+const nuevoArray = [...array1, ...array2];
+
+console.log(nuevoArray);
+
+// Ejercicio 2: Operador Rest en Funciones
+// Crea una función suma que use el operador rest para aceptar un número indeterminado de argumentos y devolver su suma.
+
+function suma(...numeros) {
+  let total = 0;
+  numeros.forEach((element) => {
+    total += element;
+  });
+  console.log(total);
+}
+
+suma(2, 5, 4, 9);
+
+// Nivel 2
+// Ejercicio 3: Copiar objetos con Spread
+// Crea un objeto objeto1. Luego crea un segundo objeto, objeto2, que sea una copia de objeto1 utilizando el operador spread.
+// Cambia una propiedad de objeto2 y comprueba que objeto1 no haya cambiado.
+
+let objeto1 = {
+  persona: "Pedro",
+  edad: 29,
+  sexo: "Masculino",
+};
+
+let objeto2 = { ...objeto1, edad: 25, fumador: "SI" };
+
+console.log(objeto2);
+
+console.log(objeto1);
+
+// Ejercicio 4: Rest en Destructuring
+// Crea una array con varios elementos.
+// Usa destructuring y el operador rest para asignar los dos primeros elementos a variables,
+// y el resto de los elementos a una tercera variable.
+
+const arrayElementos = [
+  "Futbol",
+  "Tenis",
+  "Paddle",
+  "Powerlifting",
+  "Rugby",
+  "Crossfit",
+];
+
+const [primerVariable, segundaVariable, ...resto] = arrayElementos;
+
+console.log(primerVariable);
+console.log(segundaVariable);
+console.log(resto);
+
+// Nivel 3
+// Ejercicio 5: Spread en Funciones
+// Crea una función que acepte tres argumentos.
+// Luego, crea una array con tres elementos y llama la función usando el operador spread con esa array.
+
+function sumar(a, b, c) {
+  console.log(a + b + c);
+}
+
+let array3elementos = [1, 5, 6];
+
+sumar(...array3elementos);
+
+// Ejercicio 6: Fusionar Objetos con Spread
+// Crea dos objetos con propiedades diferentes.
+// Usa el operador spread para fusionar esos dos objetos en uno nuevo.
+
+const datosIniciales = {
+  nombre: "Juan Ignacio",
+  edad: 32,
+  fumador: "NO",
+  estudiante: "SI",
+};
+const datosExtra = {
+  apellido: "Godoy",
+  apostador: "NO",
+  desemplado: "SI",
+};
+
+const fichaPersonal = { ...datosIniciales, ...datosExtra };
+
+console.log(fichaPersonal);
