@@ -154,7 +154,7 @@ parOImpar(arrayNum);
 // Escribe una función llamada procesar que acepte dos parámetros: un número y una función de callback.
 // La función procesar debe invocar el callback pasando el número como parámetro.
 
-const procesar = (num, callback) => callback(num);
+let procesar = (num, callback) => callback(num);
 
 function invocarNumero(numero) {
   console.log(`El numero pasado por parametro es: ${numero}`);
@@ -253,7 +253,7 @@ procesarCadena("Hola mi nombre es Juan Ignacio", imprimirEnConsola);
 let array1 = [2, 8, 14, 21, 28, 32, 35];
 let array2 = [1, 3, 5, 7, 9, 11, 13];
 
-const nuevoArray = [...array1, ...array2];
+let nuevoArray = [...array1, ...array2];
 
 console.log(nuevoArray);
 
@@ -292,7 +292,7 @@ console.log(objeto1);
 // Usa destructuring y el operador rest para asignar los dos primeros elementos a variables,
 // y el resto de los elementos a una tercera variable.
 
-const arrayElementos = [
+let arrayElementos = [
   "Futbol",
   "Tenis",
   "Paddle",
@@ -301,7 +301,7 @@ const arrayElementos = [
   "Crossfit",
 ];
 
-const [primerVariable, segundaVariable, ...resto] = arrayElementos;
+let [primerVariable, segundaVariable, ...resto] = arrayElementos;
 
 console.log(primerVariable);
 console.log(segundaVariable);
@@ -324,19 +324,19 @@ sumar(...array3elementos);
 // Crea dos objetos con propiedades diferentes.
 // Usa el operador spread para fusionar esos dos objetos en uno nuevo.
 
-const datosIniciales = {
+let datosIniciales = {
   nombre: "Juan Ignacio",
   edad: 32,
   fumador: "NO",
   estudiante: "SI",
 };
-const datosExtra = {
+let datosExtra = {
   apellido: "Godoy",
   apostador: "NO",
   desemplado: "SI",
 };
 
-const fichaPersonal = { ...datosIniciales, ...datosExtra };
+let fichaPersonal = { ...datosIniciales, ...datosExtra };
 
 console.log(fichaPersonal);
 
@@ -348,35 +348,35 @@ console.log(fichaPersonal);
 // Ejercicio 1: Map
 // Dado un array de números [1, 2, 3, 4], crea un nuevo array que contenga el cuadrado de cada número.
 
-const arrayNumeros3 = [1, 2, 3, 4];
+let arrayNumeros3 = [1, 2, 3, 4];
 
-const arrayCuadrado = arrayNumeros3.map((numero) => numero ** 2);
+let arrayCuadrado = arrayNumeros3.map((numero) => numero ** 2);
 
 console.log(arrayCuadrado);
 
 // Ejercicio 2: Filter
 // Dado un array de números [1, 2, 3, 4], crea un nuevo array que solo contenga los números pares.
-const arrayNumeros4 = [1, 2, 3, 4];
+let arrayNumeros4 = [1, 2, 3, 4];
 
-const arrayPares = arrayNumeros4.filter((numero) => numero % 2 === 0);
+let arrayPares = arrayNumeros4.filter((numero) => numero % 2 === 0);
 
 console.log(arrayPares);
 
 // Ejercicio 3: Find
 // Dado un array de números [1, 10, 8, 11], usa find para encontrar el primer número mayor que 10.
 
-const arrayNumeros5 = [1, 10, 8, 11];
+let arrayNumeros5 = [1, 10, 8, 11];
 
-const mayor10 = arrayNumeros5.find((numero) => numero > 10);
+let mayor10 = arrayNumeros5.find((numero) => numero > 10);
 
 console.log(mayor10);
 
 // Ejercicio 4: Reduce
 // Dado un array de números [13, 7, 8, 21], usa reduce para calcular la suma total de los números.
 
-const arrayNumeros6 = [13, 7, 8, 21];
+let arrayNumeros6 = [13, 7, 8, 21];
 
-const sumaTotal = arrayNumeros6.reduce((acc, num) => acc + num, 0);
+let sumaTotal = arrayNumeros6.reduce((acc, num) => acc + num, 0);
 
 console.log(sumaTotal);
 
@@ -390,7 +390,7 @@ console.log(sumaTotal);
 
 const arrayNumeros7 = [1, 3, 7, 10, 15, 17, 11, 5, 8, 12, 9];
 
-const calculoFinal = (array) =>
+let calculoFinal = (array) =>
   console.log(
     array
       .filter((num) => num <= 10)
@@ -398,17 +398,87 @@ const calculoFinal = (array) =>
       .reduce((acc, num) => acc + num, 0)
   );
 
-calculoFinal(arrayNumeros7)
+calculoFinal(arrayNumeros7);
 
 // Nivel 3
 // Ejercicio 6: Every / Some
 // Usa every y some para determinar si todos o algunos de los elementos del array [11, 12, 13, 14] son mayores que 10, respectivamente.
 
-const arrayNumeros8 = [11, 12, 13, 14];
+let arrayNumeros8 = [11, 12, 13, 14];
 
-const todosMayores10 = arrayNumeros8.every((num) => num > 10);
+let todosMayores10 = arrayNumeros8.every((num) => num > 10);
 
-const algunMenores10 = arrayNumeros8.some((num) => num > 10);
+let algunMenores10 = arrayNumeros8.some((num) => num > 10);
 
 console.log(todosMayores10);
 console.log(algunMenores10);
+
+// =========================================================
+// 🔁 Ejercicio 1.6: Bucles con Arrays
+// =========================================================
+
+// Nivel 1
+// Ejercicio 1: forEach
+// Dado un array de nombres, usa forEach para imprimir cada nombre en la consola.
+
+let arrayNombres2 = ["Pepe", "Juan", "Ana", "Maria", "Lucia", "Sofia"];
+
+arrayNombres2.forEach((nombre) => {
+  console.log(nombre);
+});
+
+// Ejercicio 2: for-of
+// Dado un array de nombres, usa un bucle for-of para imprimir cada nombre en la consola.
+let arrayNombres3 = ["Pepe", "Juan", "Ana", "Maria", "Lucia", "Sofia"];
+
+for (let nombres of arrayNombres3) {
+  console.log(nombres);
+}
+
+// Ejercicio 3: filter
+// Dado un array de números, usa filter para crear una nueva array que solo contenga los números pares.
+
+let numeros = [1, 2, 3, 4, 5, 6];
+
+let nuevoArrayNum = numeros.filter((num) => num % 2 === 0);
+
+console.log(nuevoArrayNum);
+
+// Nivel 2
+// Ejercicio 4: for-in
+// Dado un objeto con pares clave-valor, usa un bucle for-in para imprimir en la consola cada clave y su valor correspondiente.
+
+let persona2 = {
+  Nombre: "Juan",
+  Apellido: "Godoy",
+  Edad: 32,
+  Nacionalidad: "Argentina",
+};
+
+for (let datos in persona2) {
+  console.log(`${datos}: ${persona2[datos]}`);
+}
+
+// Ejercicio 5: for-of con break
+// Dado un array de números, usa un bucle for-of para imprimir los números hasta encontrar el número 5, luego detén el bucle.
+
+let arrayNumeros9 = [20, 10, 58, 96, 2, 5, 9, 4, 8];
+
+for (let numeros of arrayNumeros9) {
+  console.log(numeros);
+  if (numeros === 5) {
+    break;
+  }
+}
+
+// Nivel 3
+// Ejercicio 6: for-of con índice
+// Usa un bucle for-of para imprimir en la consola cada elemento del array y su posición (índice).
+
+let arrayNumeros10 = [20, 10, 58, 96, 2, 5, 9, 4, 8];
+
+let indice = 0;
+for (numeros of arrayNumeros10) {
+  console.log(`Numero: ${numeros}, Indice: ${indice}`);
+  indice++;
+}
