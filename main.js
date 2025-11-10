@@ -482,3 +482,106 @@ for (numeros of arrayNumeros10) {
   console.log(`Numero: ${numeros}, Indice: ${indice}`);
   indice++;
 }
+// =========================================================
+// ⚡ Ejercicio 1.7: Promesas y Async/Await
+// =========================================================
+
+// Nivel 1
+// Ejercicio 1: Creación de una Promesa
+// Crea una promesa que se resuelva después de 2 segundos y que devuelva la cadena de texto 'Hola, mundo'.
+
+const promesa1 = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve("Hola, mundo");
+  }, 2000);
+})
+
+  // Ejercicio 2: Uso de una Promesa
+  // Usa la promesa creada en el ejercicio anterior. Crea un .then que imprima el resultado en la consola.
+
+  .then((resultado) => console.log(resultado));
+
+// Ejercicio 3: Promesa con reject
+// Crea una promesa que se resuelva después de 2 segundos si el input es igual a 'Hola',
+// y que la rechace si el input es cualquier otra cosa.
+
+function comprobarTexto(texto) {
+  const promesa2 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      texto === "Hola"
+        ? resolve(`El texto "${texto}" es igual a "Hola"`)
+        : reject(`El texto "${texto}" no es igual "Hola"`);
+    }, 2000);
+  });
+  promesa2
+    .then((resultado) => console.log(resultado))
+    .catch((error) => console.log(error));
+}
+
+comprobarTexto("pepe");
+comprobarTexto("Hola");
+
+// Ejercicio 4: Uso de async/await
+// Escribe una función asíncrona que utilice la función await para esperar el resultado de la promesa creada en el ejercicio 1, y luego imprima ese resultado en la consola.
+
+function repetirSaludo() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Hola, mundo");
+    }, 2000);
+  });
+}
+
+async function mostrarSaludo() {
+  console.log(await repetirSaludo());
+}
+
+mostrarSaludo();
+
+// Nivel 2
+// Ejercicio 5: Gestión de errores con async/await
+// Modifica la función del ejercicio anterior para capturar cualquier posible error utilizando un bloque try/catch.
+
+function saludo() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      let respuesta = true;
+      if (respuesta) {
+        resolve("Hola, pepe");
+      } else {
+        reject("Ocurrio un error");
+      }
+    }, 2000);
+  });
+}
+
+async function saludar() {
+  try {
+    console.log(await saludo());
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+saludar();
+
+// Nivel 3
+// Ejercicio 6: Promise.all
+// Crea dos promesas que se resuelvan después de 2 y 3 segundos, respectivamente.
+// Usa Promise.all para esperar que ambas promesas se resuelvan y luego imprime los resultados en la consola.
+
+const promesa3 = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve("Promesa resuelta en dos segundos");
+  }, 2000);
+});
+
+const promesa4 = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve("Promesa resuelta en tres segundos");
+  }, 3000);
+});
+
+Promise.all([promesa3, promesa4])
+  .then((result) => console.log(result))
+  .catch((error) => console.log(error));
