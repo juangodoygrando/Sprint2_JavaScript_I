@@ -3,7 +3,7 @@
 const products = [
   {
     id: 1,
-    name: "cooking oil",
+    name: "Cooking oil",
     price: 10.5,
     type: "grocery",
     offer: {
@@ -76,9 +76,9 @@ const products = [
 
 // Improved version of cartList. Cart is an array of products (objects), but each one has a quantity field to define its quantity, so these products are not repeated.
 // Versión mejorada de cartList. El carrito es un array de productos (objetos), pero cada uno tiene un campo "quantity" para definir su cantidad, así que los productos no se repiten.
-const cartList = [];
 
-let total = 0;
+let cartList = JSON.parse(localStorage.getItem("cartList")) || [];
+let total = 0.0;
 
 // Exercise 1
 
@@ -87,8 +87,12 @@ let id;
 for (let product of productButton) {
   product.addEventListener("click", () => {
     id = Number(product.getAttribute("data-product-id"));
+
     buy(id);
+    updateCartItemPrice();
+    applyPromotionsCart();
     calculateTotal();
+    open_modal();
   });
 }
 
@@ -101,27 +105,47 @@ const buy = (id) => {
       for (let productCart of cartList) {
         if (productCart.id === id) {
           productCart.quantity++;
+          localStorage.setItem("cartList", JSON.stringify(cartList));
           console.log(cartList);
           return;
         }
       }
-      cartList.push({ ...product, quantity: 1 });
+      cartList.push({
+        ...product,
+        quantity: 1,
+        totalPriceElement: product.price,
+      });
+      localStorage.setItem("cartList", JSON.stringify(cartList));
       console.log(cartList);
       return;
     }
   }
 };
 
+const updateCartItemPrice = () => {
+  for (let productCart of cartList) {
+    productCart.totalPriceElement = productCart.quantity * productCart.price;
+  }
+  localStorage.setItem("cartList", JSON.stringify(cartList));
+};
+
 // Exercise 2
 
 const cleanButton = document.getElementById("clean-cart");
-cleanButton.addEventListener("click", () => {
-  cleanCart();
-});
+if (cleanButton) {
+  cleanButton.addEventListener("click", () => {
+    cleanCart();
+  });
+}
 
 const cleanCart = () => {
   cartList.splice(0, cartList.length);
+  localStorage.setItem("cartList", JSON.stringify(cartList));
+
   total = 0;
+  cartTable.innerHTML = "";
+  totalPrice.textContent = 0;
+  cartCount.textContent = 0;
   console.log(cartList, "Clean Cart");
 };
 
@@ -129,16 +153,15 @@ const cleanCart = () => {
 
 const calculateTotal = () => {
   // Calculate total price of the cart using the "cartList" array
-  let acumm = 0;
+  let accumulator = 0;
   for (let product of cartList) {
     if (cartList.length != 0) {
-      acumm += product.price * product.quantity;
+      accumulator = accumulator + product.totalPriceElement;
     }
   }
-
-  total = acumm;
-
-  console.log(acumm);
+  total = accumulator.toFixed(2);
+  localStorage.setItem("cartList", JSON.stringify(cartList));
+  console.log(total);
 };
 
 // Exercise 4
@@ -146,22 +169,115 @@ const calculateTotal = () => {
 const applyPromotionsCart = () => {
   // Apply promotions to each item in the array "cart"
   // Aplicar promociones a cada elemento del array "cart"
+
+  for (let productCart of cartList) {
+    if (
+      "offer" in productCart &&
+      productCart.quantity >= productCart.offer.number
+    ) {
+      productCart.totalPriceElement =
+        productCart.totalPriceElement * (1 - productCart.offer.percent / 100);
+    }
+  }
+  localStorage.setItem("cartList", JSON.stringify(cartList));
 };
 
 // Exercise 5
-// Ejercicio 5
+
+const cartTable = document.getElementById("cart_list");
+const totalPrice = document.getElementById("total_price");
+const cartCount = document.getElementById("count_product");
+
 const printCart = () => {
   // Fill the shopping cart modal manipulating the shopping cart dom
-  // Llenar el modal del carrito manipulando el DOM del carrito de compras
+
+  let carritoProductosHTML = "";
+  let cartItems = 0;
+
+  if (cartTable && totalPrice) {
+    for (let product of cartList) {
+      cartItems += product.quantity;
+      carritoProductosHTML += `<tr>
+									<th scope="row">${product.name}</th>
+									<td>$${product.price}</td>
+									<td>
+                    <div class="pl-1">
+                      <button class="btn btn-outline-secondary btn-sm me-2 btn-restar" data-id="${
+                        product.id
+                      }">
+                          <i class="fas fa-minus"></i>
+                      </button>
+
+                        <span class="cantidad">${product.quantity}</span>
+
+                      <button class="btn btn-outline-secondary btn-sm ms-2 btn-sumar"  data-id="${
+                        product.id
+                      }">
+                          <i class="fas fa-plus"></i>
+                      </button>
+                    </div>
+                  </td>
+									<td>$ ${product.totalPriceElement.toFixed(2)}</td>
+								</tr>`;
+    }
+    cartTable.innerHTML = carritoProductosHTML;
+    totalPrice.innerHTML = ` ${total}`;
+    cartCount.textContent = cartItems;
+  }
+
+  localStorage.setItem("cartList", JSON.stringify(cartList));
 };
 
 // ** Nivell II **
-// ** Nivel II **
 
 // Exercise 7
-// Ejercicio 7
-const removeFromCart = (id) => {};
+
+const removeFromCart = () => {
+  const parentElement = document.getElementById("cart_list");
+
+  if (parentElement) {
+    parentElement.addEventListener("click", (e) => {
+      const elementoCliqueado = e.target.closest(".btn");
+      let idElementoCliqueado = "";
+      let product = "";
+
+      if (elementoCliqueado != null) {
+        idElementoCliqueado = parseInt(elementoCliqueado.dataset.id);
+        product = cartList.find((item) => item.id === idElementoCliqueado);
+      }
+
+      if (elementoCliqueado.classList.contains("btn-sumar")) {
+        product.quantity++;
+        updateCartItemPrice();
+        applyPromotionsCart();
+        calculateTotal();
+        printCart();
+      } else if (elementoCliqueado.classList.contains("btn-restar")) {
+        if (product.quantity === 1) {
+          let indice = cartList.findIndex(
+            (product) => product.id === idElementoCliqueado
+          );
+          cartList.splice(indice, 1);
+          updateCartItemPrice();
+          applyPromotionsCart();
+          calculateTotal();
+          printCart();
+        } else {
+          product.quantity--;
+          updateCartItemPrice();
+          applyPromotionsCart();
+          calculateTotal();
+          printCart();
+        }
+      }
+    });
+  }
+  localStorage.setItem("cartList", JSON.stringify(cartList));
+};
 
 const open_modal = () => {
   printCart();
 };
+
+removeFromCart();
+open_modal();
