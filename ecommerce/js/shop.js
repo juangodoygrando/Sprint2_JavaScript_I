@@ -78,7 +78,7 @@ const products = [
 // Versión mejorada de cartList. El carrito es un array de productos (objetos), pero cada uno tiene un campo "quantity" para definir su cantidad, así que los productos no se repiten.
 
 let cartList = JSON.parse(localStorage.getItem("cartList")) || [];
-let total = 0.0;
+let total = 0;
 
 // Exercise 1
 
@@ -106,7 +106,7 @@ const buy = (id) => {
         if (productCart.id === id) {
           productCart.quantity++;
           localStorage.setItem("cartList", JSON.stringify(cartList));
-          console.log(cartList);
+
           return;
         }
       }
@@ -116,7 +116,7 @@ const buy = (id) => {
         totalPriceElement: product.price,
       });
       localStorage.setItem("cartList", JSON.stringify(cartList));
-      console.log(cartList);
+
       return;
     }
   }
@@ -146,7 +146,6 @@ const cleanCart = () => {
   cartTable.innerHTML = "";
   totalPrice.textContent = 0;
   cartCount.textContent = 0;
-  console.log(cartList, "Clean Cart");
 };
 
 // Exercise 3
@@ -161,7 +160,6 @@ const calculateTotal = () => {
   }
   total = accumulator.toFixed(2);
   localStorage.setItem("cartList", JSON.stringify(cartList));
-  console.log(total);
 };
 
 // Exercise 4
@@ -276,6 +274,7 @@ const removeFromCart = () => {
 };
 
 const open_modal = () => {
+  calculateTotal();
   printCart();
 };
 
