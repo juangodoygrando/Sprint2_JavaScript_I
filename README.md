@@ -1,64 +1,72 @@
-# 🚀 Sprint 2.1 — Intermediate JavaScript Exercises
+# 📌 Release 2.1 -- Basic JavaScript Exercises
 
-This project contains a collection of **intermediate-level JavaScript exercises** designed to strengthen understanding of modern ES6+ concepts.  
-All exercises are implemented in a single file: **`main.js`**.
+This branch contains a complete collection of **basic JavaScript
+exercises**, organized by levels and designed to practice the
+fundamental concepts of the language.
 
----
+It includes exercises on:
 
-## 🎯 Learning Objectives
+-   Arrow Functions\
+-   Ternary Operator\
+-   Callbacks\
+-   Rest & Spread Operators\
+-   Array Transformations (map, filter, reduce, find)\
+-   Array Loops\
+-   Promises and Async/Await
 
-By completing this sprint, the student will:
-- Reinforce knowledge of ES6+ syntax and core features.
-- Practice array transformations and object manipulation.
-- Understand the use of callbacks, promises, and async/await.
-- Work with control structures, loops, and functional programming patterns.
-- Develop cleaner, more concise, and modular JavaScript code.
+Each exercise is solved, commented, and **prints its result directly to
+the console** for easy verification.
 
----
+------------------------------------------------------------------------
 
-## 📂 Project Structure
+## ✔️ Purpose of this Branch
 
-```
-📁 sprint-2-1
- ├── main.js   # Contains all exercises
- └── README.md # Project documentation
-```
+This release gathers all the essential beginner-level JavaScript
+exercises to help solidify the foundations of the language before moving
+on to more advanced projects.
 
----
+It includes practical examples, real functions, and multiple cases
+applied to common programming scenarios.
 
-## 🧠 Exercise Index
+------------------------------------------------------------------------
 
-###  1.1 — Arrow Functions  
-###  1.2 — Ternary Operator  
-###  1.3 — Callbacks  
-###  1.4 — Rest & Spread Operators  
-###  1.5 — Array Transformations  
-###  1.6 — Loops with Arrays and Objects  
-###  1.7 — Promises and Async/Await  
+## 🛠️ How to Clone This Branch
 
----
+You can clone this release by following these steps:
 
-## 🧩 Technologies Used
-- **Language:** JavaScript (ES6+)
-- **Environment:** Node.js or Web Browser
-- **Editor:** Visual Studio Code (recommended)
+### 🔹 1. Clone the entire repository
 
----
-
-## ▶️ How to Run
-
-You can execute the exercises directly from the terminal using Node.js:
-
-```bash
-node main.js
+``` sh
+git clone https://github.com/juangodoygrando/Sprint2_JavaScript_I.git
 ```
 
-Or, you can copy individual sections into your browser console for testing.
+### 🔹 2. Navigate into the repository
 
----
+``` sh
+cd your-repository
+```
 
-## 👨‍💻 Author
+### 🔹 3. Switch to the branch *release/2.1_basic_js_exercises*
 
-**Juan Ignacio Godoy**  
-📅 Sprint 2.1 — Frontend Development  
-📘 Intermediate JavaScript Practice
+``` sh
+git checkout "release/2.1_basic_js_exercises"
+```
+
+
+------------------------------------------------------------------------
+
+## ▶️ How to Run the Code
+
+No special setup is required.\
+You can execute the code in any of the following ways:
+
+-   Open the `.js` file in **Visual Studio Code** and run it with
+    **Node.js**\
+-   Open the project using **Live Server** together with a simple HTML
+    file\
+-   Run the code directly from the **browser console**
+
+All exercises print their results to the console, making it easy to
+check and verify each solution.
+
+------------------------------------------------------------------------
