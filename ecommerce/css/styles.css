@@ -4608,6 +4608,7 @@ textarea.form-control-lg {
 .card-img-top,
 .card-img-bottom {
   width: 100%;
+  
 }
 
 .card-img,
@@ -4624,6 +4625,13 @@ textarea.form-control-lg {
 
 .card-group > .card {
   margin-bottom: 0.75rem;
+}
+.product-img {
+  width: 100%;         
+  height: 300px;      
+  object-fit: cover; 
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
 }
 @media (min-width: 576px) {
   .card-group {
