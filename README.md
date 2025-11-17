@@ -9,26 +9,12 @@ projects designed to practice and consolidate your JavaScript skills.
 
 ## 🗂️ Branch Overview
 
-  ----------------------------------------------------------------------------------------------
-  Branch                               Description
-  ------------------------------------ ---------------------------------------------------------
-  **main**                             The stable branch with this README. No code is added
-                                       here.
-
-  **develop**                          Active development branch. No README included.
-
-  **release/2.1_basic_js_exercises**   Contains all **basic JavaScript exercises**, including
-                                       arrow functions, ternary operators, callbacks, rest &
-                                       spread operators, array transformations, loops, and
-                                       promises. Each exercise prints its result to the console
-                                       for verification.
-
-  **release/2.2_e-comerce**            Contains a **small e-commerce simulation project**. Users
-                                       can interact with products and complete a form. Final
-                                       results can be verified with a `console.log` after
-                                       checkout. A live demo is also available:
-                                       https://juangodoygrando.github.io/Sprint2_JavaScript_I/
-  ----------------------------------------------------------------------------------------------
+| Branch | Description |
+|--------|-------------|
+| **main** | The stable branch with this README. No code is added here. |
+| **develop** | Active development branch. No README included. |
+| **release/2.1_basic_js_exercises** | Contains all **basic JavaScript exercises**, including arrow functions, ternary operators, callbacks, rest & spread operators, array transformations, loops, and promises. Each exercise prints its result to the console for verification. |
+| **release/2.2_e-comerce** | Contains a **small e-commerce simulation project**. Users can interact with products and complete a form. Final results can be verified with a `console.log` after checkout. A live demo is also available: https://juangodoygrando.github.io/Sprint2_JavaScript_I/ |
 
 ------------------------------------------------------------------------
 
@@ -52,10 +38,7 @@ cd Sprint2_JavaScript_I
 git checkout <branch_name>
 ```
 
-Replace `<branch_name>` with the branch of your choice (e.g.,
-`release/2.1_basic_js_exercises`).
+Replace `<branch_name>` with your branch of choice
+(e.g. `release/2.1_basic_js_exercises`).
 
-This README serves as a guide to understand where to find each exercise
-or project.\
-For practical exercises and testing, refer to the corresponding release
-branches.
+------------------------------------------------------------------------
