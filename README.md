@@ -1,24 +1,60 @@
-# Sprint_1-_JavaScript_I# Release 2.2 – eCommerce (Guión Bajo)
+# 📌 Release 2.2 – E-Commerce Exercise
 
-Este release contiene un proyecto simple de **eCommerce**, donde se pueden completar distintos campos y posteriormente verificarlos mediante un `console.log` final incluido en el código.
+This branch contains a small **E-Commerce simulation project**, designed to practice intermediate JavaScript concepts such as data handling, DOM interaction (if applicable), object structures, and basic business logic.
 
-## 🚀 Cómo ejecutarlo
+All fields and final results can be verified using the **console.log** output located at the end of the main file, allowing you to see all processed data clearly after a successful checkout, including product information in the cart and completed form details.
 
-1. Clona el repositorio o descarga esta rama.
-2. Abre el archivo `index.html` directamente en tu navegador **o** inicia un servidor local (por ejemplo con Live Server).
-3. Completa los campos del formulario o la interfaz.
-4. Al finalizar, revisa la consola del navegador:
-   - Presiona **F12**
-   - Ve a la pestaña **Console**
-   - Allí se mostrará un `console.log` con todos los campos completados.
+------------------------------------------------------------------------
 
-## 🧪 Demo en línea
+## ✔️ Purpose of this Branch
 
-Puedes ver y probar el proyecto en el siguiente enlace:
+The goal of this release is to practice how an e-commerce workflow operates internally, including:
 
-👉 **Demo:** [https://tudemo.com/ecommerce_2_2](https://tudemo.com/ecommerce_2_2)
+- Creating and managing product objects  
+- Handling prices, quantities, and cart operations  
+- Processing totals and user information  
+- Displaying results through structured console output after checkout  
 
+This exercise prepares you for more advanced projects involving full UI manipulation, APIs, and complex data flows.
 
-## ✔️ Verificación
+------------------------------------------------------------------------
 
-El `console.log` final te permitirá comprobar rápidamente que todos los datos ingresados fueron capturados correctamente.
+## 🛠️ How to Clone This Branch
+
+You can clone and access this release by following these steps:
+
+### 🔹 1. Clone the entire repository
+```sh
+git clone https://github.com/juangodoygrando/Sprint2_JavaScript_I.git
+```
+
+### 🔹 2. Navigate into the repository
+```sh
+cd Sprint2_JavaScript_I
+```
+
+### 🔹 3. Switch to the branch *release/2.2_e-comerce*
+```sh
+git checkout "release/2.2_e-comerce"
+```
+
+------------------------------------------------------------------------
+
+## ▶️ How to Run the Code
+
+No special installation is required.  
+You can run the project in any of the following ways:
+
+- Open the project with **Live Server**  
+- Run the script through the **browser console**  
+- Open the `.js` file in **Visual Studio Code** and execute it with **Node.js** (if desired)
+
+All processed data and final outputs will be displayed through the **console.log** at the end of the script, showing the complete information of products in the cart and form details after a successful checkout.
+
+------------------------------------------------------------------------
+
+## 🔗 Live Demo
+
+You can test and preview the project directly here:
+
+👉 **https://juangodoygrando.github.io/Sprint2_JavaScript_I/**
