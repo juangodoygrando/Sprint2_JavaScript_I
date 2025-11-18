@@ -365,7 +365,7 @@ console.log(arrayPares);
 // Ejercicio 3: Find
 // Dado un array de números [1, 10, 8, 11], usa find para encontrar el primer número mayor que 10.
 
-let arrayNumeros5 = [1, 10, 8, 11];
+let arrayNumeros5 = [1, 9, 8, 1, 15, 20];
 
 let mayor10 = arrayNumeros5.find((numero) => numero > 10);
 
@@ -390,15 +390,13 @@ console.log(sumaTotal);
 
 const arrayNumeros7 = [1, 3, 7, 10, 15, 17, 11, 5, 8, 12, 9];
 
-let calculoFinal = (array) =>
-  console.log(
-    array
-      .filter((num) => num <= 10)
-      .map((num) => num * 2)
-      .reduce((acc, num) => acc + num, 0)
-  );
+const calculoFinal = (array) =>
+  array
+    .filter((num) => num >= 10)
+    .map((num) => num * 2)
+    .reduce((acc, num) => acc + num, 0);
 
-calculoFinal(arrayNumeros7);
+console.log(calculoFinal(arrayNumeros7));
 
 // Nivel 3
 // Ejercicio 6: Every / Some
